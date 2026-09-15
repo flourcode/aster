@@ -1,0 +1,15 @@
+{
+  "name": "asteroid-registry",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A novelty registry of real NASA-tracked near-Earth asteroids.",
+  "type": "module",
+  "scripts": {
+    "fetch": "node scripts/fetch-asteroids.mjs",
+    "build": "node scripts/build-pages.mjs",
+    "serve": "npx --yes serve ."
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

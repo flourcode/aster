@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" data-base="./">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adopt an Asteroid — name a real near-Earth object for $5</title>
+<meta name="description" content="A novelty registry of real near-Earth asteroids tracked by NASA. Pick one, give it a name, get a certificate. Recognised by this website and nobody else.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adopt an Asteroid">
+<meta property="og:description" content="Name a real, NASA-tracked, potentially hazardous asteroid after someone who deserves it. $5.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+
+<div id="banner"></div>
+<header class="masthead" id="masthead"></header>
+
+<main>
+
+  <section class="hero">
+    <div class="wrap hero__grid">
+      <div>
+        <h1>Name a potentially hazardous asteroid after someone who deserves it</h1>
+        <p class="hero__lede">
+          Every rock below is real, tracked by NASA, and currently hurtling
+          around the Sun with no name at all. Pick one. Give it a name. We will
+          issue a certificate that looks far more official than it has any
+          right to be.
+        </p>
+        <div class="hero__actions">
+          <a class="btn" href="#registry">Browse the registry</a>
+          <button class="btn" type="button" id="shuffle">Show me a dangerous one</button>
+        </div>
+      </div>
+
+      <figure class="hero__plate">
+        <div id="hero-orbit" aria-live="polite"></div>
+        <figcaption id="hero-caption"></figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="wrap section" id="how">
+    <h2>How this works</h2>
+    <ol class="prose steps">
+      <li>Find an unclaimed rock. The ones near the
+        top get closest to Earth, which makes them better gifts.</li>
+      <li>Pay $5. At checkout you tell us the name
+        you want and who the certificate is for.</li>
+      <li>You get a printable certificate by email,
+        and this rock's page publicly carries your name until the heat death of
+        the universe or the end of our hosting plan, whichever comes first.</li>
+    </ol>
+    <p class="prose fineprint">
+      To be completely clear, because people ask: the International Astronomical
+      Union assigns real asteroid names and we have nothing to do with them.
+      Nothing you name here appears in any scientific catalogue. That is the
+      joke. If you want the joke to land, do not tell the recipient it's real.
+    </p>
+  </section>
+
+  <section class="wrap section" id="registry">
+    <h2>The registry</h2>
+
+    <div class="controls">
+      <div class="control">
+        <label class="field-label" for="q">Search by designation or name</label>
+        <input type="search" id="q" placeholder="e.g. Apophis, 2023 DW, Bennu">
+      </div>
+      <div class="control">
+        <label class="field-label" for="cls">Orbit class</label>
+        <select id="cls"><option value="">All classes</option></select>
+      </div>
+      <div class="control">
+        <label class="field-label" for="sort">Order by</label>
+        <select id="sort">
+          <option value="moid">Closest approach to Earth</option>
+          <option value="size">Largest first</option>
+          <option value="name">Designation</option>
+        </select>
+      </div>
+      <div class="control">
+        <label class="checkline"><input type="checkbox" id="unclaimed" checked> Unclaimed only</label>
+        <label class="checkline"><input type="checkbox" id="phaonly"> Hazardous only</label>
+      </div>
+    </div>
+
+    <p class="result-count" id="count" aria-live="polite">Loading the inventory…</p>
+    <div class="registry" id="grid"></div>
+    <div class="loadmore"><button class="btn" type="button" id="more" hidden>Load more</button></div>
+  </section>
+
+</main>
+
+<footer class="footer" id="footer"></footer>
+
+<script src="./config.js"></script>
+<script type="module" src="./js/browse.js"></script>
+</body>
+</html>
