@@ -236,3 +236,80 @@ Orbital data comes from the [NASA/JPL Small-Body Database Query
 API](https://ssd-api.jpl.nasa.gov/doc/sbdb_query.html), which is open and free.
 NASA, JPL and Caltech don't endorse this and aren't affiliated with it. Keep the
 attribution in the footer.
+
+---
+
+# Orbit charts (the print side)
+
+`poster.html` is a separate thing from the registry: it turns any asteroid in
+your inventory into a print-ready chart you can sell as a poster. It shares the
+same `data/asteroids.json`, so there's nothing extra to set up.
+
+## What's on the chart
+
+- **The orbit**, plotted from NASA's real orbital elements for that rock.
+- **Equal-time markers** — the asteroid's position every 1/24th of its year.
+  They crowd together where it's crawling at its farthest point and spread
+  apart where it whips around the Sun. That's Kepler's second law, visible.
+  On Phaethon the spacing varies seventeenfold; on Bennu, barely at all.
+- **A broken line** where the orbit passes below the plane of Earth's orbit.
+- **Context rings** for Earth, Mars and Jupiter, drawn only when they're
+  relevant to that rock's orbit.
+- **A side view** showing the same orbit edge on, which is the only way to see
+  how tilted it is.
+- **A dedication line**, optional, set small at the foot of the sheet.
+
+## Making a file to sell
+
+1. Open `poster.html`, pick an asteroid, pick a colourway and size.
+2. **Save as PDF.** Print at 100% scale, margins None, background graphics on.
+   You get a true vector PDF at the exact physical size — sharp at any scale.
+3. Or **Download SVG** if your printer wants vector artwork to work from.
+
+Tick "Add 3 mm bleed" if a print shop asks for it. Most print-on-demand
+services don't need it.
+
+## Which rocks make good posters
+
+Eccentricity is what makes a chart interesting to look at. A near-circular
+orbit is a boring circle; a stretched one is a striking ellipse with the dots
+piling up at one end. Sort by eccentricity and start there.
+
+Reliable picks from the sample data: **Phaethon** (e=0.89, extreme),
+**Icarus** (0.83), **Toutatis** (0.63), **Apollo** (0.56). **Apophis**,
+**Bennu** and **Ryugu** are rounder but sell on name recognition.
+
+The "Surprise me" button is weighted towards named rocks with eccentric orbits
+for exactly this reason.
+
+## Why this is a better business than the naming registry
+
+The naming idea had a structural problem: the disclaimers that keep it honest
+only work when the framing is a joke, which rules out every sincere occasion —
+and sincere occasions are where gift money actually is.
+
+A print has no such problem. You are selling a real object with real data
+printed on it. There is nothing to disclaim, because nothing is being claimed.
+The dedication line does the emotional work a gift needs, the same way a
+dedication in a book does, without asserting that anyone owns an asteroid.
+
+## Running it as a shop
+
+The lowest-effort version has **no per-order work at all**: make twenty charts
+of famous asteroids once, upload them to a print-on-demand service, list them,
+and never touch them again. Orders fulfil themselves.
+
+Personalised charts — a dedication, a custom colourway — are the upsell, and
+they're the only ones that need you to open the studio and generate a file.
+Charge more for them, because they cost you ten minutes.
+
+Before you commit to a price, check the current base cost and shipping for the
+size you want on whichever service you pick, then work backwards. Poster base
+costs and marketplace fees both move around, so use their live pricing pages
+rather than any number you read in a guide. The things to add up: base print
+cost, shipping, marketplace listing and transaction fees, and payment
+processing. What's left is your margin.
+
+Worth knowing: astronomy and data-visualisation prints are an established
+category with real search demand, which the naming registry never had. You can
+find buyers without needing a viral moment.

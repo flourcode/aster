@@ -16,7 +16,7 @@ const SITE_CONFIG = {
   // Your live URL, no trailing slash. Used for share links and sitemap.xml.
   // GitHub Pages project site: "https://yourname.github.io/asteroid-registry"
   // Custom domain:             "https://adoptanasteroid.com"
-  siteUrl: "https://yourname.github.io/asteroid-registry",
+  siteUrl: "https://flourcode.github.io/aster",
 
   // Where people email you. Shown in the footer.
   contactEmail: "hello@example.com",

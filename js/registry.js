@@ -163,6 +163,7 @@ export function mountHeader(el, current) {
       </a>
       <nav class="masthead__nav">
         <a href="${BASE}index.html"${current === "browse" ? ' aria-current="page"' : ""}>Browse the registry</a>
+        <a href="${BASE}poster.html"${current === "poster" ? ' aria-current="page"' : ""}>Orbit charts</a>
         <a href="${BASE}index.html#how">How it works</a>
       </nav>
     </div>`;

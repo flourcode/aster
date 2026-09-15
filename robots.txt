@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Disallow: /certificate.html
-Sitemap: https://yourname.github.io/asteroid-registry/sitemap.xml
+Sitemap: https://flourcode.github.io/aster/sitemap.xml

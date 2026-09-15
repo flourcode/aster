@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en" data-base="./">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Orbit charts — print-ready posters from real NASA data</title>
+<meta name="description" content="Print-ready orbit charts for real near-Earth asteroids, plotted from NASA's own orbital elements.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Antonio:wght@300;400;500&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./css/style.css">
+<link rel="stylesheet" href="./css/poster.css">
+</head>
+<body class="studio">
+
+<header class="masthead" id="masthead"></header>
+
+<main class="wrap studio__layout">
+
+  <section class="studio__controls" aria-label="Chart options">
+    <h1 class="studio__h1">Orbit charts</h1>
+    <p class="studio__lede">
+      Every chart is plotted from NASA's own orbital elements. The dots mark
+      where the asteroid sits every 1/24th of its year — they bunch where it
+      crawls and spread where it races. No two rocks look alike.
+    </p>
+
+    <div class="control">
+      <label class="field-label" for="rock">Asteroid</label>
+      <select id="rock"></select>
+    </div>
+
+    <div class="control">
+      <label class="field-label" for="q">Or search</label>
+      <input type="search" id="q" placeholder="Apophis, Bennu, Phaethon…">
+    </div>
+
+    <div class="control">
+      <label class="field-label" for="palette">Colourway</label>
+      <select id="palette"></select>
+    </div>
+
+    <div class="control">
+      <label class="field-label" for="size">Paper size</label>
+      <select id="size"></select>
+    </div>
+
+    <div class="control">
+      <label class="field-label" for="dedication">Dedication (optional)</label>
+      <input type="text" id="dedication" maxlength="60" placeholder="For Sarah — 14 March 2026">
+      <small class="control__hint">
+        Printed small at the foot of the chart, the way a book carries a
+        dedication. It doesn't claim the asteroid is named after anyone.
+      </small>
+    </div>
+
+    <div class="control">
+      <label class="checkline"><input type="checkbox" id="bleed"> Add 3&nbsp;mm bleed for print shops</label>
+    </div>
+
+    <div class="studio__actions">
+      <button class="btn btn--claim" type="button" id="pdf">Save as PDF</button>
+      <button class="btn" type="button" id="svg">Download SVG</button>
+      <button class="btn" type="button" id="shuffle">Surprise me</button>
+    </div>
+
+    <p class="studio__note" id="note"></p>
+  </section>
+
+  <section class="studio__stage" aria-label="Preview">
+    <div class="studio__paper" id="paper">Loading…</div>
+  </section>
+
+</main>
+
+<footer class="footer" id="footer"></footer>
+
+<!-- The print layer: only this is visible when printing. -->
+<div class="printonly" id="printlayer" aria-hidden="true"></div>
+
+<script src="./config.js"></script>
+<script type="module" src="./js/studio.js"></script>
+</body>
+</html>

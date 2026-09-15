@@ -255,7 +255,7 @@ h3 { font-size: 1.35rem; }
 }
 .control { display: flex; flex-direction: column; min-width: 0; }
 
-input[type="search"], select {
+input[type="search"], input[type="text"], select {
   font-family: var(--body);
   font-size: 1rem;
   color: var(--chalk);
@@ -267,7 +267,8 @@ input[type="search"], select {
   -webkit-appearance: none;
   appearance: none;
 }
-input[type="search"]::placeholder { color: var(--chalk-3); }
+input[type="search"]::placeholder,
+input[type="text"]::placeholder { color: var(--chalk-3); }
 select {
   background-image: linear-gradient(45deg, transparent 50%, var(--chalk-2) 50%),
                     linear-gradient(135deg, var(--chalk-2) 50%, transparent 50%);
