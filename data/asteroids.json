@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "generated": "sample",
+    "source": "Sample data — ten well-known real asteroids, values approximate",
+    "sourceUrl": "https://ssd-api.jpl.nasa.gov/doc/sbdb_query.html",
+    "group": "sample",
+    "matched": 10,
+    "count": 10,
+    "sample": true,
+    "note": "Run `npm run fetch` to replace this file with the live NASA inventory."
+  },
+  "asteroids": [
+    { "id": "2099942", "fullName": "99942 Apophis (2004 MN4)", "name": "Apophis", "class": "APO", "neo": true, "pha": true, "moid": 0.00016, "H": 19.09, "diameterKm": 0.34, "diameterEstimated": false, "a": 0.9227, "e": 0.1915, "i": 3.339, "om": 203.96, "w": 126.72, "ma": 200.4, "q": 0.746, "ad": 1.0994, "periodYears": 0.8862, "conditionCode": 0, "obsUsed": 7318 },
+    { "id": "2162173", "fullName": "162173 Ryugu (1999 JU3)", "name": "Ryugu", "class": "APO", "neo": true, "pha": true, "moid": 0.0009, "H": 19.3, "diameterKm": 0.9, "diameterEstimated": false, "a": 1.1896, "e": 0.1902, "i": 5.884, "om": 251.62, "w": 211.44, "ma": 120.7, "q": 0.9633, "ad": 1.4159, "periodYears": 1.2975, "conditionCode": 0, "obsUsed": 5651 },
+    { "id": "2101955", "fullName": "101955 Bennu (1999 RQ36)", "name": "Bennu", "class": "APO", "neo": true, "pha": true, "moid": 0.00322, "H": 20.19, "diameterKm": 0.492, "diameterEstimated": false, "a": 1.1264, "e": 0.2037, "i": 6.035, "om": 2.06, "w": 66.22, "ma": 300.1, "q": 0.8969, "ad": 1.3559, "periodYears": 1.1955, "conditionCode": 0, "obsUsed": 1436 },
+    { "id": "2004179", "fullName": "4179 Toutatis (1989 AC)", "name": "Toutatis", "class": "APO", "neo": true, "pha": true, "moid": 0.0061, "H": 15.3, "diameterKm": 5.4, "diameterEstimated": false, "a": 2.5312, "e": 0.6294, "i": 0.447, "om": 124.4, "w": 278.72, "ma": 50.2, "q": 0.9381, "ad": 4.1243, "periodYears": 4.0264, "conditionCode": 0, "obsUsed": 4881 },
+    { "id": "2025143", "fullName": "25143 Itokawa (1998 SF36)", "name": "Itokawa", "class": "APO", "neo": true, "pha": false, "moid": 0.0129, "H": 19.2, "diameterKm": 0.33, "diameterEstimated": false, "a": 1.3242, "e": 0.28, "i": 1.621, "om": 69.08, "w": 162.82, "ma": 80.3, "q": 0.9534, "ad": 1.695, "periodYears": 1.5237, "conditionCode": 0, "obsUsed": 1074 },
+    { "id": "2003200", "fullName": "3200 Phaethon (1983 TB)", "name": "Phaethon", "class": "APO", "neo": true, "pha": true, "moid": 0.0199, "H": 14.6, "diameterKm": 5.8, "diameterEstimated": false, "a": 1.2713, "e": 0.8898, "i": 22.26, "om": 265.23, "w": 322.18, "ma": 150.6, "q": 0.14, "ad": 2.4026, "periodYears": 1.4335, "conditionCode": 0, "obsUsed": 5013 },
+    { "id": "2001862", "fullName": "1862 Apollo (1932 HA)", "name": "Apollo", "class": "APO", "neo": true, "pha": true, "moid": 0.0257, "H": 16.25, "diameterKm": 1.5, "diameterEstimated": false, "a": 1.4706, "e": 0.5599, "i": 6.354, "om": 35.56, "w": 286.03, "ma": 10.8, "q": 0.6472, "ad": 2.294, "periodYears": 1.7833, "conditionCode": 0, "obsUsed": 2312 },
+    { "id": "2001566", "fullName": "1566 Icarus (1949 MA)", "name": "Icarus", "class": "APO", "neo": true, "pha": true, "moid": 0.0344, "H": 16.9, "diameterKm": 1.0, "diameterEstimated": false, "a": 1.078, "e": 0.827, "i": 22.83, "om": 88.02, "w": 31.35, "ma": 100.2, "q": 0.1865, "ad": 1.9695, "periodYears": 1.1193, "conditionCode": 0, "obsUsed": 1231 },
+    { "id": "2002062", "fullName": "2062 Aten (1976 AA)", "name": "Aten", "class": "ATE", "neo": true, "pha": false, "moid": 0.1027, "H": 17.1, "diameterKm": 0.9, "diameterEstimated": false, "a": 0.9668, "e": 0.1827, "i": 18.93, "om": 108.58, "w": 148.02, "ma": 20.5, "q": 0.7902, "ad": 1.1434, "periodYears": 0.9506, "conditionCode": 0, "obsUsed": 1614 },
+    { "id": "2000433", "fullName": "433 Eros (A898 PA)", "name": "Eros", "class": "AMO", "neo": true, "pha": false, "moid": 0.1505, "H": 10.31, "diameterKm": 16.84, "diameterEstimated": false, "a": 1.4583, "e": 0.2226, "i": 10.83, "om": 304.3, "w": 178.9, "ma": 250.1, "q": 1.1337, "ad": 1.7829, "periodYears": 1.7611, "conditionCode": 0, "obsUsed": 9130 }
+  ]
+}

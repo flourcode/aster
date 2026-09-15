@@ -1,0 +1,472 @@
+/* ==========================================================================
+   Adopt an Asteroid — cyanotype blueprint theme
+   Everything is plain CSS. No build step, no framework.
+   Colours live in :root below — change them there and the whole site follows.
+   ========================================================================== */
+
+:root {
+  /* Cyanotype palette: a blueprint sheet, white linework, ink stamps */
+  --void:      #061829;
+  --sheet:     #0E3357;
+  --sheet-2:   #0A2743;
+  --rule:      #1C567F;
+  --rule-soft: rgba(110, 170, 215, 0.16);
+  --chalk:     #E7F1FA;
+  --chalk-2:   #96B9D4;
+  --chalk-3:   #83A9C6;
+  --stamp-ok:  #4FDFA4;
+  --stamp-no:  #FF6042;
+  --paper:     #FCFBF7;
+
+  --display: "Antonio", "Arial Narrow", sans-serif;
+  --body:    "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+  --mono:    "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  --gutter: clamp(1.25rem, 4vw, 3rem);
+  --measure: 66ch;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* .btn sets display:inline-block, which would otherwise beat [hidden]. */
+[hidden] { display: none !important; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--body);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--chalk);
+  background-color: var(--sheet);
+  /* The blueprint grid. Two sets of hairlines, 1cm and 2mm. */
+  background-image:
+    linear-gradient(var(--rule-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--rule-soft) 1px, transparent 1px),
+    linear-gradient(rgba(110,170,215,0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110,170,215,0.07) 1px, transparent 1px);
+  background-size: 96px 96px, 96px 96px, 19.2px 19.2px, 19.2px 19.2px;
+  background-position: -1px -1px;
+}
+
+a { color: var(--chalk); text-decoration-color: var(--rule); text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--chalk); }
+
+:focus-visible {
+  outline: 2px solid var(--stamp-ok);
+  outline-offset: 3px;
+}
+
+img, svg { max-width: 100%; }
+
+.wrap { max-width: 1180px; margin: 0 auto; padding: 0 var(--gutter); }
+.prose { max-width: var(--measure); }
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px; overflow: hidden;
+  clip: rect(0 0 0 0); clip-path: inset(50%); white-space: nowrap;
+}
+
+/* --- Drafting lettering ---------------------------------------------- */
+
+h1, h2, h3, .drafted {
+  font-family: var(--display);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  line-height: 1.04;
+  margin: 0;
+}
+
+h1 { font-size: clamp(2.25rem, 5.4vw, 4.25rem); }
+h2 { font-size: clamp(1.75rem, 3.5vw, 2.5rem); }
+h3 { font-size: 1.35rem; }
+
+/* Field labels on a technical drawing. Used only on actual data captions. */
+.field-label {
+  font-family: var(--mono);
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--chalk-3);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.num { font-family: var(--mono); font-variant-numeric: tabular-nums; }
+
+/* --- Header ----------------------------------------------------------- */
+
+.masthead {
+  border-bottom: 1px solid var(--rule);
+  background: linear-gradient(180deg, rgba(6,24,41,0.85), rgba(6,24,41,0.4));
+  position: relative;
+  z-index: 2;
+}
+.masthead__inner {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  padding-block: 1rem;
+}
+.masthead__mark {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+}
+.masthead__mark span {
+  font-family: var(--mono);
+  font-size: 0.625rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--chalk-3);
+}
+.masthead__nav { display: flex; gap: 1.5rem; font-size: 0.9rem; }
+
+/* --- Banner (sample-data warning) ------------------------------------ */
+
+.banner {
+  background: var(--stamp-no);
+  color: var(--void);
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.5rem var(--gutter);
+}
+.banner code {
+  font-family: var(--mono);
+  background: rgba(6,24,41,0.18);
+  padding: 0.05em 0.4em;
+  border-radius: 2px;
+}
+
+/* --- Hero ------------------------------------------------------------- */
+
+.hero { padding-block: clamp(2.5rem, 6vw, 4.5rem) 0; }
+.hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.hero__lede {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: var(--chalk-2);
+  max-width: 46ch;
+  margin: 1.25rem 0 0;
+}
+.hero h1 { text-wrap: balance; }
+
+.hero__actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+
+.hero__plate {
+  border: 1px solid var(--rule);
+  background: rgba(6,24,41,0.55);
+  padding: 1rem;
+}
+.hero__plate figcaption {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 1rem;
+  border-top: 1px solid var(--rule);
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  font-size: 0.8rem;
+  color: var(--chalk-2);
+}
+.hero__plate figcaption b {
+  font-family: var(--display); font-size: 1.2rem; font-weight: 400;
+  color: var(--chalk); line-height: 1.1; display: block;
+}
+.hero__plate figcaption a { color: inherit; text-decoration-color: var(--rule); }
+.hero__plate figcaption > :last-child { text-align: right; }
+
+/* --- Buttons ---------------------------------------------------------- */
+
+.btn {
+  display: inline-block;
+  font-family: var(--body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid var(--chalk);
+  background: transparent;
+  color: var(--chalk);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 120ms, color 120ms;
+}
+.btn:hover { background: var(--chalk); color: var(--void); }
+
+.btn--claim {
+  background: var(--stamp-ok);
+  border-color: var(--stamp-ok);
+  color: var(--void);
+  font-size: 1.05rem;
+  padding: 1rem 1.75rem;
+  width: 100%;
+  text-align: center;
+}
+.btn--claim:hover { background: var(--chalk); border-color: var(--chalk); }
+.btn--claim[aria-disabled="true"] {
+  background: transparent;
+  border-color: var(--rule);
+  color: var(--chalk-3);
+  cursor: not-allowed;
+}
+
+/* --- Stamps ----------------------------------------------------------- */
+
+.stamp {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.7rem;
+  border: 2px solid currentColor;
+  transform: rotate(-1.5deg);
+}
+.stamp--ok { color: var(--stamp-ok); }
+.stamp--no { color: var(--stamp-no); }
+.stamp--hazard {
+  color: var(--stamp-no);
+  border-style: double;
+  border-width: 4px;
+}
+
+/* --- Controls / filters ---------------------------------------------- */
+
+.controls {
+  border: 1px solid var(--rule);
+  background: rgba(6,24,41,0.5);
+  padding: 1.25rem;
+  display: grid;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 1fr) minmax(0, 1fr) auto;
+  gap: 1rem;
+  align-items: end;
+}
+.control { display: flex; flex-direction: column; min-width: 0; }
+
+input[type="search"], select {
+  font-family: var(--body);
+  font-size: 1rem;
+  color: var(--chalk);
+  background: var(--sheet-2);
+  border: 1px solid var(--rule);
+  padding: 0.65rem 0.75rem;
+  width: 100%;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+input[type="search"]::placeholder { color: var(--chalk-3); }
+select {
+  background-image: linear-gradient(45deg, transparent 50%, var(--chalk-2) 50%),
+                    linear-gradient(135deg, var(--chalk-2) 50%, transparent 50%);
+  background-position: calc(100% - 18px) 55%, calc(100% - 13px) 55%;
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  padding-right: 2.25rem;
+}
+.checkline { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; }
+.checkline input { width: 1.05rem; height: 1.05rem; accent-color: var(--stamp-ok); }
+
+.result-count {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  color: var(--chalk-2);
+  margin: 1.5rem 0 1rem;
+}
+
+/* --- How it works ----------------------------------------------------- */
+
+.steps { padding-left: 1.15rem; color: var(--chalk-2); margin: 1rem 0 0; }
+.steps li { margin-bottom: 0.65rem; }
+.fineprint { color: var(--chalk-3); font-size: 0.9rem; }
+.section { margin-top: clamp(2.5rem, 6vw, 4rem); }
+.controls + .result-count { margin-top: 1.5rem; }
+
+/* --- Registry cards --------------------------------------------------- */
+
+.registry {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1px;
+  background: var(--rule);
+  border: 1px solid var(--rule);
+}
+
+.rock {
+  background: var(--sheet);
+  padding: 1.1rem 1.25rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  text-decoration: none;
+  color: inherit;
+  min-height: 190px;
+}
+.rock:hover { background: var(--sheet-2); }
+.rock__top { display: flex; justify-content: space-between; align-items: start; gap: 0.75rem; }
+.rock__name {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  line-height: 1.05;
+  overflow-wrap: anywhere;
+}
+.rock__nick {
+  font-size: 0.85rem;
+  color: var(--stamp-no);
+  font-style: italic;
+}
+.rock__stats {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.75rem;
+  font-size: 0.85rem;
+}
+.rock__stats b { font-family: var(--mono); font-weight: 500; display: block; }
+
+.empty {
+  border: 1px dashed var(--rule);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: var(--chalk-2);
+}
+
+.loadmore { display: flex; justify-content: center; margin: 2rem 0 0; }
+
+/* --- Single asteroid -------------------------------------------------- */
+
+.record { padding-block: clamp(2rem, 5vw, 3.5rem) 4rem; }
+.record__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: start;
+}
+.record__head { border-bottom: 1px solid var(--rule); padding-bottom: 1.5rem; margin-bottom: 2rem; }
+.record__head h1 { overflow-wrap: anywhere; }
+.record__badges { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.25rem; }
+
+.plate {
+  border: 1px solid var(--rule);
+  background: rgba(6,24,41,0.55);
+  padding: 1rem;
+  position: sticky;
+  top: 1.5rem;
+}
+
+/* Drafting title block: the data table */
+.titleblock { border: 1px solid var(--rule); border-bottom: 0; }
+.titleblock__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  border-bottom: 1px solid var(--rule);
+}
+.titleblock__row dt {
+  padding: 0.7rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--chalk-2);
+  border-right: 1px solid var(--rule);
+  background: rgba(6,24,41,0.35);
+}
+.titleblock__row dd {
+  margin: 0;
+  padding: 0.7rem 0.9rem;
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  overflow-wrap: anywhere;
+}
+.titleblock__row dd small { display: block; font-family: var(--body); color: var(--chalk-3); font-size: 0.75rem; }
+
+.buybox { border: 1px solid var(--chalk); padding: 1.5rem; margin-top: 2rem; }
+.buybox h2 { margin-bottom: 0.5rem; }
+.buybox p { margin: 0 0 1.25rem; color: var(--chalk-2); font-size: 0.95rem; }
+.buybox__fine {
+  font-size: 0.8rem;
+  color: var(--chalk-3);
+  margin: 1rem 0 0;
+  line-height: 1.5;
+}
+
+.claimed-note {
+  border: 1px solid var(--stamp-no);
+  padding: 1.5rem;
+  margin-top: 2rem;
+}
+.claimed-note h2 { color: var(--stamp-no); }
+.claimed-note p { color: var(--chalk-2); }
+
+.plate__source {
+  display: block;
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: var(--chalk-3);
+  text-align: center;
+}
+.plate__source a { color: var(--chalk-2); }
+
+/* --- Footer ----------------------------------------------------------- */
+
+.footer {
+  border-top: 1px solid var(--rule);
+  margin-top: 4rem;
+  padding-block: 2.5rem 3.5rem;
+  font-size: 0.85rem;
+  color: var(--chalk-3);
+  background: rgba(6,24,41,0.6);
+}
+.footer__grid { display: grid; grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr); gap: 2.5rem; }
+.footer p { margin: 0 0 0.9rem; max-width: 62ch; }
+.footer a { color: var(--chalk-2); }
+.footer strong { color: var(--chalk-2); font-weight: 600; }
+
+/* --- Orbit diagram ---------------------------------------------------- */
+
+.orbit { display: block; width: 100%; height: auto; }
+.orbit__sun { fill: #FFD27A; }
+.orbit__earth-path { fill: none; stroke: var(--chalk-3); stroke-width: 1; stroke-dasharray: 4 4; }
+.orbit__earth { fill: #6FC3F5; }
+.orbit__path { fill: none; stroke: var(--stamp-ok); stroke-width: 1.6; }
+.orbit__path--hazard { stroke: var(--stamp-no); }
+.orbit__body { fill: var(--chalk); }
+.orbit__tick { stroke: var(--chalk-3); stroke-width: 1; }
+.orbit__text {
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  fill: var(--chalk-3);
+}
+
+/* --- Responsive ------------------------------------------------------- */
+
+@media (max-width: 560px) {
+  .masthead__mark { font-size: 1.25rem; flex-wrap: wrap; gap: 0.35rem; }
+  .masthead__nav { gap: 1rem; font-size: 0.85rem; }
+}
+
+@media (max-width: 900px) {
+  .hero__grid, .record__grid, .footer__grid { grid-template-columns: minmax(0, 1fr); }
+  .hero__plate { order: -1; }
+  .plate { position: static; }
+  .controls { grid-template-columns: minmax(0, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

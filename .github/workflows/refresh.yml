@@ -1,0 +1,43 @@
+# Refreshes the NASA inventory and rebuilds every page, then commits the result.
+#
+# You do NOT need this to launch. It's a convenience so the registry doesn't
+# go stale — NASA finds new near-Earth objects most weeks.
+#
+# To run it by hand: Actions tab -> "Refresh asteroid inventory" -> Run workflow.
+# To run it automatically, uncomment the two "schedule" lines below.
+#
+# One-time setup: Settings -> Actions -> General -> Workflow permissions
+#                 -> select "Read and write permissions" -> Save.
+
+name: Refresh asteroid inventory
+
+on:
+  workflow_dispatch:
+  # schedule:
+  #   - cron: "0 5 1 * *"   # 05:00 UTC on the 1st of each month
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Pull the latest data from NASA/JPL
+        run: npm run fetch
+
+      - name: Rebuild every asteroid page
+        run: npm run build
+
+      - name: Commit anything that changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --staged --quiet || git commit -m "Refresh inventory from NASA/JPL"
+          git push
